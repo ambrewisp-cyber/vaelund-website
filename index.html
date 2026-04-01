@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vaelund — A 2D isometric MMORPG set in a world torn apart. Coming 2027.">
+  <title>Vaelund — A broken world to mend</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/static/img/logo.png" alt="Vaelund" class="logo-img">
+    </a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Coming 2027
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">A broken world<br>to mend</span>
+      </h1>
+      <p class="hero-tagline">
+        A 2D isometric MMORPG set in Vaelund — a world torn apart two centuries ago,
+        held together by old magic and older sins. The Hollow is growing again.
+        Someone has to go in.
+      </p>
+      <div class="cta-block">
+        <p class="cta-label">Get early access — drop your email</p>
+        <form class="email-form" id="email-form" novalidate>
+          <div class="form-row">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              <span class="btn-text">Notify me</span>
+              <span class="btn-spinner hidden" id="spinner"></span>
+            </button>
+          </div>
+          <p class="form-error hidden" id="form-error"></p>
+        </form>
+        <p class="form-success hidden" id="form-success">
+          You're on the list. We'll be in touch before launch.
+        </p>
+        <p class="form-note">One email. When there's something worth reading.</p>
+      </div>
+    </div>
+
+    <div class="hero-preview">
+      <div class="preview-frame">
+        <div class="preview-inner">
+          <div class="preview-placeholder">
+            <div class="preview-mosaic">
+              <div class="mosaic-cell cell-1"></div>
+              <div class="mosaic-cell cell-2"></div>
+              <div class="mosaic-cell cell-3"></div>
+              <div class="mosaic-cell cell-4"></div>
+            </div>
+            <span class="preview-icon">🏔️</span>
+            <div class="preview-text">
+              <p>Vaelund</p>
+              <small>2D isometric — 2027</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof">
+    <div class="proof-inner">
+      <p class="proof-quote">
+        The gods made war on one another. What they fought over is lost.
+        What remains is a constellation of islands in a silver sky —
+        and a Void that grows a little wider every year.
+      </p>
+      <p class="proof-source">— Vaelund World Lore</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="features-inner">
+      <div class="section-header">
+        <h2 class="section-title">What you're walking into</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-icon">⚔</span>
+          <h3>Weighty combat</h3>
+          <p>Every swing means something. Mobs that react, stagger, and flee. Damage that accumulates. Death that costs time.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🏹</span>
+          <h3>One world, no zones</h3>
+          <p>Walk from Millhaven to the Hollow's edge without a loading screen. The world is seamless — and so is the danger.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📜</span>
+          <h3>Quests that connect</h3>
+          <p>A main arc with real stakes. Side stories that tie back. Factions with conflicting agendas. Finish one thing, another thing changes.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🗺️</span>
+          <h3>No hand-holding</h3>
+          <p>150x150 world. Dungeons without quest markers. Secrets for people who look.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3>Abilities, not stats</h3>
+          <p>Spell combos. Positional effects. Cooldowns you manage. Build defines how you fight, not just how hard you hit.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🌑</span>
+          <h3>The Hollow grows</h3>
+          <p>Not a raid event. A slow apocalypse. The Seals are weakening. No one has fixed that yet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Before it ships — give us your email</h2>
+      <p>We will not use it for anything else.</p>
+      <form class="email-form compact" id="email-form-2" novalidate>
+        <div class="form-row">
+          <input
+            type="email"
+            id="email2"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+          <button type="submit" class="btn btn-primary">
+            <span class="btn-text">Notify me</span>
+            <span class="btn-spinner hidden"></span>
+          </button>
+        </div>
+        <p class="form-error hidden"></p>
+      </form>
+      <p class="form-success hidden">
+        You're on the list.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>⚔</span> Vaelund
+    </div>
+    <div class="footer-links">
+      <a href="https://discord.gg/vaelund" target="_blank" rel="noopener">Discord</a>
+    </div>
+    <p class="footer-copy">© 2026 Vaelund. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="toast hidden" id="toast"></div>
+
+<script>
+(function() {
+  // ── Google Apps Script URL ──────────────────────────────────────────────
+  // Replace with your own Apps Script deployment URL after setup (see below)
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.remove('hidden');
+    setTimeout(() => t.classList.add('hidden'), 4000);
+  }
+
+  function setLoading(form, btn, textEl, loading) {
+    if (loading) {
+      btn.disabled = true;
+      textEl.textContent = 'Sending…';
+      btn.querySelector('.btn-spinner').classList.remove('hidden');
+    } else {
+      btn.disabled = false;
+      textEl.textContent = btn.dataset.originalText || 'Notify me';
+      btn.querySelector('.btn-spinner').classList.add('hidden');
+    }
+  }
+
+  function handleSubmit(form, emailInput, errorEl, successEl) {
+    return function(e) {
+      e.preventDefault();
+      errorEl.classList.add('hidden');
+      const email = emailInput.value.trim();
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorEl.textContent = 'Enter a valid email address.';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      const btn = form.querySelector('button[type=submit]');
+      const textEl = btn.querySelector('.btn-text');
+      if (!btn.dataset.originalText) btn.dataset.originalText = textEl.textContent;
+
+      setLoading(form, btn, textEl, true);
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'email=' + encodeURIComponent(email)
+      })
+        .then(function() {
+          form.classList.add('hidden');
+          successEl.classList.remove('hidden');
+          showToast('You\'re on the list!');
+        })
+        .catch(function() {
+          errorEl.textContent = 'Something went wrong. Try again.';
+          errorEl.classList.remove('hidden');
+          setLoading(form, btn, textEl, false);
+        });
+    };
+  }
+
+  // Main form
+  var form1 = document.getElementById('email-form');
+  if (form1) {
+    form1.addEventListener('submit', handleSubmit(
+      form1,
+      document.getElementById('email'),
+      document.getElementById('form-error'),
+      document.getElementById('form-success')
+    ));
+  }
+
+  // Footer form
+  var form2 = document.getElementById('email-form-2');
+  if (form2) {
+    form2.addEventListener('submit', handleSubmit(
+      form2,
+      document.getElementById('email2'),
+      form2.querySelector('.form-error'),
+      form2.querySelector('.form-success')
+    ));
+  }
+})();
+</script>
+
+<!--
+────────────────────────────────────────────────────────────────────────────
+SETUP: Email collection via Google Sheets (free, no backend)
+
+1. Open Google Sheets → New → paste this as column A header: Timestamp
+                                           column B header: Email
+2. Extensions → Apps Script
+3. Paste the script below, save, Deploy → New deployment → Web app
+   - Execute as: Me
+   - Who has access: Anyone
+4. Copy the deployment URL and replace APPS_SCRIPT_URL above
+
+SCRIPT:
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var email = e.parameter.email;
+  if (email) {
+    sheet.appendRow([new Date(), email]);
+  }
+  return ContentService.createTextOutput('OK');
+}
+────────────────────────────────────────────────────────────────────────────
+-->
+</body>
+</html>
