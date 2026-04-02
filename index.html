@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
@@ -177,9 +177,8 @@
 
 <script>
 (function() {
-  // ── Google Apps Script URL ──────────────────────────────────────────────
-  // Replace with your own Apps Script deployment URL after setup (see below)
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+  // ── Email collection ────────────────────────────────────────────────────────
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbylqtYk2cHpOOiLp0iOMjLhyhKThADXnumV0rz3mtqVCgRZ-wSzGKRqPs01IU2beKU/exec';
 
   function showToast(msg) {
     const t = document.getElementById('toast');
@@ -218,11 +217,15 @@
 
       setLoading(form, btn, textEl, true);
 
+      // POST to Apps Script web app
+      const body = new URLSearchParams();
+      body.set('email', email);
+
       fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'email=' + encodeURIComponent(email)
+        body: body.toString()
       })
         .then(function() {
           form.classList.add('hidden');
@@ -261,28 +264,6 @@
 })();
 </script>
 
-<!--
-────────────────────────────────────────────────────────────────────────────
-SETUP: Email collection via Google Sheets (free, no backend)
 
-1. Open Google Sheets → New → paste this as column A header: Timestamp
-                                           column B header: Email
-2. Extensions → Apps Script
-3. Paste the script below, save, Deploy → New deployment → Web app
-   - Execute as: Me
-   - Who has access: Anyone
-4. Copy the deployment URL and replace APPS_SCRIPT_URL above
-
-SCRIPT:
-function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var email = e.parameter.email;
-  if (email) {
-    sheet.appendRow([new Date(), email]);
-  }
-  return ContentService.createTextOutput('OK');
-}
-────────────────────────────────────────────────────────────────────────────
--->
 </body>
 </html>
