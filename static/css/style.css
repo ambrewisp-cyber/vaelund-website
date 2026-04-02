@@ -17,7 +17,7 @@ body {
 /* ── Ambient edge particles ──────────────────────────────── */
 
 #edge-particles {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -807,7 +807,7 @@ a:visited { color: #8a8070; }
 /* ── Toast ────────────────────────────────────────────────── */
 
 #toast {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
