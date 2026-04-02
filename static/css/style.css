@@ -132,10 +132,19 @@ a:visited { color: #c88a10; }
   display: flex;
   align-items: center;
   gap: 6px;
+  background: #111820;
+  border: 1px solid #2a3a50;
+  border-radius: 3px;
 }
 
 .nav-discord:hover {
-  background: #1a1408;
+  background: #1a2840;
+  border-color: #4a6a9a;
+}
+.nav-discord-icon {
+  height: 16px;
+  vertical-align: middle;
+  filter: invert(1);
 }
 
 /* ── Main ────────────────────────────────────────────────── */
