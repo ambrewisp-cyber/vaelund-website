@@ -155,45 +155,8 @@ a:visited { color: #8a8070; }
 }
 
 /* === Orbiting ring === */
-#logo-title .orbit-ring {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 180px;
-  height: 180px;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: -1;
-  animation: ring-spin 8s linear infinite;
-}
-
-#logo-title .orbit-dot {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ffffff, #80d0ff);
-  box-shadow: 0 0 6px #80d0ff, 0 0 12px rgba(0, 200, 255, 0.8);
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* 6 dots on an ellipse */
-#logo-title .od1 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out infinite; }
-#logo-title .od2 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 0.25s infinite; }
-#logo-title .od3 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 0.5s infinite; }
-#logo-title .od4 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 0.75s infinite; }
-#logo-title .od5 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 1s infinite; }
-#logo-title .od6 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 1.25s infinite; }
-
 /* Position dots on ellipse ring */
-#logo-title .od1 { transform: translateX(-50%) translateY(-90px); }
-#logo-title .od2 { transform: translateX(-50%) translateY(-90px) rotate(60deg) translateX(0) translateY(78px) rotate(-60deg); }
-#logo-title .od3 { transform: translateX(-50%) translateY(-90px) rotate(120deg) translateX(0) translateY(78px) rotate(-120deg); }
-#logo-title .od4 { transform: translateX(-50%) translateY(-90px) rotate(180deg) translateX(0) translateY(78px) rotate(-180deg); }
-#logo-title .od5 { transform: translateX(-50%) translateY(-90px) rotate(240deg) translateX(0) translateY(78px) rotate(-240deg); }
-#logo-title .od6 { transform: translateX(-50%) translateY(-90px) rotate(300deg) translateX(0) translateY(78px) rotate(-300deg); }
-
 /* === Sparkle floating layer === */
 #logo-title .sparkle-layer {
   position: absolute;
@@ -250,14 +213,10 @@ a:visited { color: #8a8070; }
 
 /* === Keyframes === */
 
-@keyframes ring-spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
+to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-@keyframes dot-twinkle {
-  0%   { opacity: 0;   transform: translateX(-50%) translateY(-90px) scale(0.5); }
-  30%  { opacity: 1;   transform: translateX(-50%) translateY(-90px) scale(1.3); }
+30%  { opacity: 1;   transform: translateX(-50%) translateY(-90px) scale(1.3); }
   70%  { opacity: 0.8; transform: translateX(-50%) translateY(-90px) scale(1); }
   100% { opacity: 0;   transform: translateX(-50%) translateY(-90px) scale(0.5); }
 }
