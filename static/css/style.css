@@ -70,83 +70,269 @@ a:visited { color: #8a8070; }
 
 /* ── Logo hover glow + particles ───────────────────────── */
 
-#logo-title .glow-ring {
+#logo-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 34px;
+  font-weight: bold;
+  color: #c070ff;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 0 #000, 0 0 10px rgba(0, 200, 255, 0.5);
+  margin-top: 4px;
+  display: block;
+  position: relative;
+  transition: filter 0.2s;
+}
+
+/* === Background aura === */
+#logo-title .aura {
   position: absolute;
   left: 50%;
   top: 50%;
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 210, 255, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 180, 255, 0.4) 0%, rgba(0, 120, 255, 0.15) 40%, rgba(80, 0, 200, 0.05) 60%, transparent 80%);
   transform: translate(-50%, -50%);
-  opacity: 0;
   pointer-events: none;
-  z-index: -1;
+  z-index: -2;
+  transition: width 0.3s, height 0.3s, opacity 0.3s;
+  opacity: 0;
 }
 
-#logo-title .particle {
+/* === Orbiting ring === */
+#logo-title .orbit-ring {
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 180px;
+  height: 180px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: ring-spin 8s linear infinite;
+}
+
+#logo-title .orbit-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #80d0ff);
+  box-shadow: 0 0 6px #80d0ff, 0 0 12px rgba(0, 200, 255, 0.8);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 6 dots on an ellipse */
+#logo-title .od1 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out infinite; }
+#logo-title .od2 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 0.25s infinite; }
+#logo-title .od3 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 0.5s infinite; }
+#logo-title .od4 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 0.75s infinite; }
+#logo-title .od5 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 1s infinite; }
+#logo-title .od6 { left: 50%; top: 0; animation: dot-twinkle 1.5s ease-in-out 1.25s infinite; }
+
+/* Position dots on ellipse ring */
+#logo-title .od1 { transform: translateX(-50%) translateY(-90px); }
+#logo-title .od2 { transform: translateX(-50%) translateY(-90px) rotate(60deg) translateX(0) translateY(78px) rotate(-60deg); }
+#logo-title .od3 { transform: translateX(-50%) translateY(-90px) rotate(120deg) translateX(0) translateY(78px) rotate(-120deg); }
+#logo-title .od4 { transform: translateX(-50%) translateY(-90px) rotate(180deg) translateX(0) translateY(78px) rotate(-180deg); }
+#logo-title .od5 { transform: translateX(-50%) translateY(-90px) rotate(240deg) translateX(0) translateY(78px) rotate(-240deg); }
+#logo-title .od6 { transform: translateX(-50%) translateY(-90px) rotate(300deg) translateX(0) translateY(78px) rotate(-300deg); }
+
+/* === Sparkle floating layer === */
+#logo-title .sparkle-layer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* === 16 floating sparkle dots === */
+#logo-title .sp {
+  position: absolute;
   width: 3px;
   height: 3px;
   border-radius: 50%;
   background: #80d0ff;
-  box-shadow: 0 0 6px #80d0ff, 0 0 12px rgba(128, 208, 255, 0.8);
+  box-shadow: 0 0 4px #80d0ff, 0 0 8px rgba(128, 208, 255, 0.8);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* === 12 orbiting particles === */
+#logo-title .particle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #80d0ff;
+  box-shadow: 0 0 8px #80d0ff, 0 0 16px rgba(0, 200, 255, 1);
   opacity: 0;
   pointer-events: none;
   z-index: -1;
 }
 
-/* 8 particles on a circle */
-#logo-title .p1 { transform: translate(-50%,-50%) rotate(0deg)   translateX(70px) translateY(0px); }
-#logo-title .p2 { transform: translate(-50%,-50%) rotate(45deg)  translateX(70px) translateY(0px); }
-#logo-title .p3 { transform: translate(-50%,-50%) rotate(90deg)  translateX(70px) translateY(0px); }
-#logo-title .p4 { transform: translate(-50%,-50%) rotate(135deg) translateX(70px) translateY(0px); }
-#logo-title .p5 { transform: translate(-50%,-50%) rotate(180deg) translateX(70px) translateY(0px); }
-#logo-title .p6 { transform: translate(-50%,-50%) rotate(225deg) translateX(70px) translateY(0px); }
-#logo-title .p7 { transform: translate(-50%,-50%) rotate(270deg) translateX(70px) translateY(0px); }
-#logo-title .p8 { transform: translate(-50%,-50%) rotate(315deg) translateX(70px) translateY(0px); }
+/* Particles scattered at various positions */
+#logo-title .p1  { transform: translate(-50%,-50%) translateX(60px)  translateY(-30px); }
+#logo-title .p2  { transform: translate(-50%,-50%) translateX(80px)  translateY(10px); }
+#logo-title .p3  { transform: translate(-50%,-50%) translateX(50px)  translateY(40px); }
+#logo-title .p4  { transform: translate(-50%,-50%) translateX(-60px) translateY(-30px); }
+#logo-title .p5  { transform: translate(-50%,-50%) translateX(-80px) translateY(10px); }
+#logo-title .p6  { transform: translate(-50%,-50%) translateX(-50px) translateY(40px); }
+#logo-title .p7  { transform: translate(-50%,-50%) translateX(30px)  translateY(-70px); }
+#logo-title .p8  { transform: translate(-50%,-50%) translateX(-30px) translateY(-70px); }
+#logo-title .p9  { transform: translate(-50%,-50%) translateX(70px)  translateY(-60px); }
+#logo-title .p10 { transform: translate(-50%,-50%) translateX(-70px) translateY(-60px); }
+#logo-title .p11 { transform: translate(-50%,-50%) translateX(20px)  translateY(60px); }
+#logo-title .p12 { transform: translate(-50%,-50%) translateX(-20px) translateY(60px); }
 
-@keyframes glow-pulse {
-  0%   { text-shadow: 2px 2px 0 #000, 0 0 20px rgba(0, 210, 255, 0.6), 0 0 40px rgba(0, 180, 255, 0.3); }
-  50%  { text-shadow: 2px 2px 0 #000, 0 0 60px rgba(0, 210, 255, 1), 0 0 120px rgba(0, 210, 255, 0.6), 0 0 180px rgba(0, 150, 255, 0.2); }
-  100% { text-shadow: 2px 2px 0 #000, 0 0 20px rgba(0, 210, 255, 0.6), 0 0 40px rgba(0, 180, 255, 0.3); }
+/* === Keyframes === */
+
+@keyframes ring-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-@keyframes ring-expand {
-  0%   { width: 0; height: 0; opacity: 0; }
-  30%  { opacity: 0.9; }
-  100% { width: 280px; height: 280px; opacity: 0; }
+@keyframes dot-twinkle {
+  0%   { opacity: 0;   transform: translateX(-50%) translateY(-90px) scale(0.5); }
+  30%  { opacity: 1;   transform: translateX(-50%) translateY(-90px) scale(1.3); }
+  70%  { opacity: 0.8; transform: translateX(-50%) translateY(-90px) scale(1); }
+  100% { opacity: 0;   transform: translateX(-50%) translateY(-90px) scale(0.5); }
 }
 
-@keyframes particle-orbit {
-  0%   { opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { opacity: 0; }
+/* Aura expansion */
+@keyframes aura-grow {
+  0%   { width: 0;     height: 0;     opacity: 0; }
+  30%  { opacity: 1; }
+  100% { width: 400px; height: 400px; opacity: 0.6; }
 }
 
+/* Particle flicker-in and drift */
+@keyframes particle-flicker {
+  0%   { opacity: 0;   transform: translate(-50%,-50%) scale(0); }
+  15%  { opacity: 1;   transform: translate(-50%,-50%) scale(1.2); }
+  85%  { opacity: 0.8; transform: translate(-50%,-50%) scale(1); }
+  100% { opacity: 0;   transform: translate(-50%,-50%) scale(0.5); }
+}
+
+/* Sparkle float up */
+@keyframes sparkle-float {
+  0%   { transform: translateY(0)     scale(0); opacity: 0; }
+  15%  { transform: translateY(-10px) scale(1); opacity: 1; }
+  85%  { transform: translateY(-80px) scale(0.8); opacity: 0.6; }
+  100% { transform: translateY(-100px) scale(0); opacity: 0; }
+}
+
+/* Hardcore glow pulse — layered cyan/violet text-shadow */
+@keyframes glow-hardcore {
+  0%, 100% {
+    text-shadow:
+      0 0 5px  #fff,
+      0 0 10px #80d0ff,
+      0 0 20px #80d0ff,
+      0 0 40px #00b4ff,
+      0 0 70px #00b4ff,
+      0 0 100px #0070ff,
+      0 0 140px #0070ff,
+      0 0 200px #0040c0,
+      0 0 280px #002080;
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow:
+      0 0 5px  #fff,
+      0 0 15px #a0e8ff,
+      0 0 30px #80d0ff,
+      0 0 60px #00d0ff,
+      0 0 100px #00b4ff,
+      0 0 150px #0080ff,
+      0 0 220px #0060ff,
+      0 0 320px #0040c0,
+      0 0 420px #002080;
+    filter: brightness(1.5);
+  }
+}
+
+/* === HOVER STATE === */
 #logo:hover #logo-title {
-  animation: glow-pulse 1.2s ease-in-out infinite;
+  animation: glow-hardcore 1.8s ease-in-out infinite;
+  text-decoration: none;
 }
 
-#logo:hover #logo-title .glow-ring {
-  animation: ring-expand 2s ease-out infinite;
+#logo:hover #logo-title .aura {
+  animation: aura-grow 2.5s ease-out infinite;
 }
 
 #logo:hover #logo-title .particle {
-  animation: particle-orbit 2s ease-in-out infinite;
+  animation: particle-flicker 2s ease-in-out infinite;
 }
 
-#logo:hover #logo-title .p1 { animation-delay: 0s; }
-#logo:hover #logo-title .p2 { animation-delay: 0.25s; }
-#logo:hover #logo-title .p3 { animation-delay: 0.5s; }
-#logo:hover #logo-title .p4 { animation-delay: 0.75s; }
-#logo:hover #logo-title .p5 { animation-delay: 1s; }
-#logo:hover #logo-title .p6 { animation-delay: 1.25s; }
-#logo:hover #logo-title .p7 { animation-delay: 1.5s; }
-#logo:hover #logo-title .p8 { animation-delay: 1.75s; }
+#logo:hover #logo-title .p1  { animation-delay: 0s; }
+#logo:hover #logo-title .p2  { animation-delay: 0.17s; }
+#logo:hover #logo-title .p3  { animation-delay: 0.34s; }
+#logo:hover #logo-title .p4  { animation-delay: 0.51s; }
+#logo:hover #logo-title .p5  { animation-delay: 0.68s; }
+#logo:hover #logo-title .p6  { animation-delay: 0.85s; }
+#logo:hover #logo-title .p7  { animation-delay: 1.02s; }
+#logo:hover #logo-title .p8  { animation-delay: 1.19s; }
+#logo:hover #logo-title .p9  { animation-delay: 1.36s; }
+#logo:hover #logo-title .p10 { animation-delay: 1.53s; }
+#logo:hover #logo-title .p11 { animation-delay: 1.7s; }
+#logo:hover #logo-title .p12 { animation-delay: 1.87s; }
+
+#logo:hover #logo-title .sparkle-layer {
+  animation: sparkle-layer-appear 2s ease-in-out infinite;
+}
+
+@keyframes sparkle-layer-appear {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}
+
+#logo:hover #logo-title .sp {
+  animation: sparkle-float 3s ease-in-out infinite;
+}
+#logo:hover #logo-title .sp1  { animation-delay: 0s;     }
+#logo:hover #logo-title .sp2  { animation-delay: 0.19s; }
+#logo:hover #logo-title .sp3  { animation-delay: 0.38s; }
+#logo:hover #logo-title .sp4  { animation-delay: 0.57s; }
+#logo:hover #logo-title .sp5  { animation-delay: 0.76s; }
+#logo:hover #logo-title .sp6  { animation-delay: 0.95s; }
+#logo:hover #logo-title .sp7  { animation-delay: 1.14s; }
+#logo:hover #logo-title .sp8  { animation-delay: 1.33s; }
+#logo:hover #logo-title .sp9  { animation-delay: 1.52s; }
+#logo:hover #logo-title .sp10 { animation-delay: 1.71s; }
+#logo:hover #logo-title .sp11 { animation-delay: 1.9s;  }
+#logo:hover #logo-title .sp12 { animation-delay: 2.09s; }
+#logo:hover #logo-title .sp13 { animation-delay: 2.28s; }
+#logo:hover #logo-title .sp14 { animation-delay: 2.47s; }
+#logo:hover #logo-title .sp15 { animation-delay: 2.66s; }
+#logo:hover #logo-title .sp16 { animation-delay: 2.85s; }
+
+/* Stagger the sparkle positions */
+#logo:hover #logo-title .sp1  { left: 40px;  top: 20px;  }
+#logo:hover #logo-title .sp2  { left: -30px; top: 10px;  }
+#logo:hover #logo-title .sp3  { left: 60px;  top: -10px; }
+#logo:hover #logo-title .sp4  { left: -50px; top: -20px; }
+#logo:hover #logo-title .sp5  { left: 20px;  top: -30px; }
+#logo:hover #logo-title .sp6  { left: -20px; top: 30px;  }
+#logo:hover #logo-title .sp7  { left: 70px;  top: 0px;   }
+#logo:hover #logo-title .sp8  { left: -65px; top: 5px;   }
+#logo:hover #logo-title .sp9  { left: 35px;  top: -40px; }
+#logo:hover #logo-title .sp10 { left: -35px; top: -40px; }
+#logo:hover #logo-title .sp11 { left: 10px;  top: 40px;  }
+#logo:hover #logo-title .sp12 { left: -10px; top: 45px;  }
+#logo:hover #logo-title .sp13 { left: 50px;  top: 15px;  }
+#logo:hover #logo-title .sp14 { left: -55px; top: -10px; }
+#logo:hover #logo-title .sp15 { left: 0px;   top: -50px; }
+#logo:hover #logo-title .sp16 { left: -60px; top: 25px;  }
 
 
 #logo-tagline {
