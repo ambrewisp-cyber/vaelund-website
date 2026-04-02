@@ -16,8 +16,10 @@ body {
 /* ── Links ───────────────────────────────────────────────── */
 
 a { color: #c0b8a8; text-decoration: none; }
-a:hover { color: #c0b8a8; text-decoration: underline; }
+a:hover { color: #c0b8a8; }
 a:visited { color: #8a8070; }
+
+#logo:hover { text-decoration: none; }
 
 /* ── Header bar ──────────────────────────────────────────── */
 
@@ -40,6 +42,11 @@ a:visited { color: #8a8070; }
   display: block;
   margin: 0 auto 4px;
   text-align: center;
+  position: relative;
+}
+
+#logo:hover #logo-title {
+  text-decoration: none;
 }
 
 #logo-img {
@@ -58,6 +65,90 @@ a:visited { color: #8a8070; }
   text-shadow: 2px 2px 0 #000, 0 0 12px rgba(128, 80, 220, 0.5);
   margin-top: 4px;
   display: block;
+  position: relative;
+}
+
+#logo-title .glow-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(160, 80, 255, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Particle dots */
+#logo-title::before,
+#logo-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(160, 80, 255, 0.8);
+  box-shadow: 0 0 6px rgba(160, 80, 255, 1);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Glow on logo hover ─────────────────────────────────── */
+
+@keyframes glow-pulse {
+  0%   { text-shadow: 2px 2px 0 #000, 0 0 12px rgba(128, 80, 220, 0.5); }
+  50%  { text-shadow: 2px 2px 0 #000, 0 0 30px rgba(160, 80, 255, 0.9), 0 0 60px rgba(128, 80, 220, 0.4); }
+  100% { text-shadow: 2px 2px 0 #000, 0 0 12px rgba(128, 80, 220, 0.5); }
+}
+
+@keyframes particle-1 {
+  0%   { transform: translate(-50%, -50%) rotate(0deg) translateX(60px) translateY(-10px); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(60px) translateY(-10px); opacity: 0; }
+}
+
+@keyframes particle-2 {
+  0%   { transform: translate(-50%, -50%) rotate(120deg) translateX(70px) translateY(5px); opacity: 0; }
+  20%  { opacity: 0.8; }
+  80%  { opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) rotate(480deg) translateX(70px) translateY(5px); opacity: 0; }
+}
+
+@keyframes particle-3 {
+  0%   { transform: translate(-50%, -50%) rotate(240deg) translateX(55px) translateY(-20px); opacity: 0; }
+  20%  { opacity: 0.9; }
+  80%  { opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) rotate(600deg) translateX(55px) translateY(-20px); opacity: 0; }
+}
+
+@keyframes ring-expand {
+  0%   { width: 0; height: 0; opacity: 0; }
+  50%  { opacity: 0.6; }
+  100% { width: 200px; height: 200px; opacity: 0; }
+}
+
+#logo:hover #logo-title {
+  animation: glow-pulse 1.5s ease-in-out infinite;
+}
+
+#logo:hover #logo-title .glow-ring {
+  animation: ring-expand 2s ease-out infinite;
+}
+
+#logo:hover #logo-title::before {
+  animation: particle-1 2s linear infinite;
+}
+
+#logo:hover #logo-title::after {
+  animation: particle-2 2s linear infinite;
 }
 
 #logo-tagline {
