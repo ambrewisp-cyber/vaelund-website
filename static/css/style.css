@@ -10,7 +10,6 @@ body {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  min-width: 800px;
   overflow-x: hidden;
 }
 
@@ -104,7 +103,7 @@ a:visited { color: #8a8070; }
 }
 
 #logo-img {
-  height: 80px;
+  height: 240px;
   width: auto;
   display: block;
   margin: 0 auto;
@@ -784,13 +783,74 @@ to   { transform: translate(-50%, -50%) rotate(360deg); }
   display: block;
 }
 
-/* ── Responsive (minimal — old school wasn't responsive) ─── */
+/* ── Responsive ─── */
 
 @media (max-width: 700px) {
-  #hero-inner { display: block; }
-  #hero-left, #hero-right { display: block; width: 100%; border-right: none; border-bottom: 1px solid #1a1a1a; }
-  #features-grid { grid-template-columns: 1fr 1fr; }
-  #nav-inner { flex-wrap: wrap; }
+  #logo-img {
+    height: 140px;
+  }
+
+  #header-inner {
+    padding: 10px 12px 6px;
+  }
+
+  #nav-inner {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 0 8px;
+  }
+
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  .nav-sep {
+    display: none;
+  }
+
+  #hero {
+    padding: 20px 12px;
+  }
+
+  #hero-inner {
+    display: block;
+  }
+
+  #hero-left, #hero-right {
+    display: block;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 0 0 20px;
+  }
+
+  #features-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  #cta-section {
+    padding: 30px 12px;
+  }
+
+  .cta-inner {
+    padding: 0;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-row input {
+    width: 100%;
+  }
+
+  .footer-inner {
+    padding: 20px 12px;
+  }
 }
 
 .hidden { display: none !important; }
