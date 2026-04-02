@@ -182,7 +182,9 @@
 <!-- ── Scripts ────────────────────────────────────────────── -->
 <script>
 (function() {
-  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbylqtYk2cHpOOiLp0iOMjLhyhKThADXnumV0rz3mtqVCgRZ-wSzGKRqPs01IU2beKU/exec';
+  // Google Forms endpoint — responses linked to Google Sheet
+  var FORM_RESPONSE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSftVJ3cUbMerIn2yAtHELKcyJZci0sbXnTsOLen7eDjkcGc3A/formResponse';
+  var FORM_ENTRY_ID = 'entry.1036080517';
 
   function showToast(msg) {
     var t = document.getElementById('toast');
@@ -210,8 +212,8 @@
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
-    var body = 'email=' + encodeURIComponent(email);
-    fetch(APPS_SCRIPT_URL, {
+    var body = FORM_ENTRY_ID + '=' + encodeURIComponent(email);
+    fetch(FORM_RESPONSE_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
