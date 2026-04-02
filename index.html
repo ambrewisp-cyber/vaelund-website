@@ -311,6 +311,14 @@
       }
     });
   });
+
+  // Sync edge particles height to full document height
+  function syncEdgeParticles() {
+    var ep = document.getElementById('edge-particles');
+    if (ep) ep.style.height = document.documentElement.scrollHeight + 'px';
+  }
+  syncEdgeParticles();
+  window.addEventListener('resize', syncEdgeParticles);
 })();
 </script>
 

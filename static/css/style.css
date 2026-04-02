@@ -62,7 +62,7 @@ body {
   0%   { transform: translateY(0)     scale(0.5); opacity: 0; }
   5%   { opacity: 0.7; transform: translateY(-20px) scale(1); }
   80%  { opacity: 0.5; }
-  100% { transform: translateY(-105vh) scale(0.3); opacity: 0; }
+  100% { transform: translateY(-800px) scale(0.3); opacity: 0; }
 }
 
 /* ── Links ───────────────────────────────────────────────── */
@@ -81,7 +81,7 @@ a:visited { color: #8a8070; }
   padding: 0;
   text-align: center;
   position: relative;
-  z-index: 10;
+  z-index: 200;
 }
 
 #header-inner {
@@ -97,7 +97,6 @@ a:visited { color: #8a8070; }
   margin: 0 auto 4px;
   text-align: center;
   position: relative;
-  z-index: 200;
 }
 
 #logo:hover #logo-title {
