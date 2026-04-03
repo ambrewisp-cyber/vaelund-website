@@ -727,6 +727,59 @@ to   { transform: translate(-50%, -50%) rotate(360deg); }
   line-height: 1.6;
 }
 
+/* ── Devlog ───────────────────────────────────────────────── */
+
+#devlog-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.devlog-post {
+  border-bottom: 1px solid #1a1a1a;
+  padding: 16px 0;
+}
+
+.devlog-post:last-child {
+  border-bottom: none;
+}
+
+.devlog-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.devlog-date {
+  font-size: 11px;
+  color: #606060;
+  letter-spacing: 1px;
+}
+
+.devlog-tag {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: #1a1a1a;
+  color: #c070ff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.devlog-title {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: #c0b8a8;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.devlog-excerpt {
+  font-size: 12px;
+  color: #8a8070;
+  line-height: 1.6;
+}
+
 /* ── Footer ───────────────────────────────────────────────── */
 
 #footer {
@@ -852,6 +905,14 @@ to   { transform: translate(-50%, -50%) rotate(360deg); }
 
   .footer-inner {
     padding: 20px 12px;
+  }
+
+  #devlog-grid {
+    gap: 0;
+  }
+
+  .devlog-post {
+    padding: 12px 0;
   }
 }
 
