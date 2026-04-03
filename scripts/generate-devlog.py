@@ -205,17 +205,21 @@ def basic_markdown(text):
 
 
 def basic_inline(text):
-    """Handle inline markdown: bold, italic, code, links."""
+    """Handle inline markdown: bold, italic, code, links, images."""
     # Code spans
     text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
     # Bold
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     # Italic
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
+    # Images ![alt](url) — must run BEFORE links, since ![...] also contains [...]
+    def img_replace(m):
+        alt = m.group(1)
+        url = m.group(2)
+        return f'<img src="{url}" alt="{alt}" style="max-width:100%;">'
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', img_replace, text)
     # Links [text](url)
     text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
-    # Images ![alt](url)
-    text = re.sub(r'!\[([^\]]*)\]\((.+?)\)', r'<img src="\2" alt="\1" style="max-width:100%;">', text)
     return text
 
 
