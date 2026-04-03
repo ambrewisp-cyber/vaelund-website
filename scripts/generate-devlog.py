@@ -215,7 +215,7 @@ def basic_inline(text):
     # Links [text](url)
     text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
     # Images ![alt](url)
-    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" style="max-width:100%;">', text)
+    text = re.sub(r'!\[([^\]]*)\]\((.+?)\)', r'<img src="\2" alt="\1" style="max-width:100%;">', text)
     return text
 
 

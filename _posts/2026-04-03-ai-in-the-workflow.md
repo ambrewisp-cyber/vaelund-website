@@ -45,6 +45,13 @@ Sprites are generated through PixelLab.ai, partly through a Python script that c
 
 The `meadow_rat` took four generations before the result was usable. The anatomy was wrong across frames, the tail was inconsistent between animation frames. This required iteration, not a single pixel adjustment. The process is not automatic.
 
-![meadow_rat sprite](/vaelund-website/static/img/sprites/south-east.png)
+![Meadow Rat](/vaelund-website/static/img/sprites/south-east.png)
+![Health Potion](/vaelund-website/static/img/sprites/item_001.png)
+![Leather Armor](/vaelund-website/static/img/sprites/item_010.png)
+![Iron Sword](/vaelund-website/static/img/sprites/item_030.png)
+![Fireball](/vaelund-website/static/img/sprites/fireball_projectile.png)
+![Heal Spell](/vaelund-website/static/img/sprites/spell_000.png)
+![Teleport Spell](/vaelund-website/static/img/sprites/spell_005.png)
+![Archon's Sigil](/vaelund-website/static/img/sprites/item_052.png)
 
 For someone who does not know how to draw, PixelLab is incredibly useful. Results are very good bases that need refinement. They are not finished assets and not ready to ship without review.
