@@ -433,8 +433,8 @@ to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 .nav-discord-icon {
   height: 16px;
+  width: auto;
   vertical-align: middle;
-  filter: invert(1);
 }
 
 /* ── Main ────────────────────────────────────────────────── */
