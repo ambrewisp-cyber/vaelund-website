@@ -5,18 +5,22 @@ tag: progress
 excerpt: One sentence shown on the devlog index. Make it count.
 ---
 
-Write your post here. Use **bold** for emphasis. Keep sentences short.
+**TL;DR** — Short version for the impatient. One sentence.
 
-## Headers
+## What we did
 
-Use `##` for section headers. Keep it to 2-3 sections max.
+- Bullet list of concrete changes
+- Each item is a complete thought
+- No fluff, no "we're excited to"
 
-- Lists work too
-- For bullet points
+## Problems we hit
 
-`inline code` for commands or technical terms.
+What broke, what took longer than expected, what we tried that didn't work.
 
-Run the generator when ready:
-```
-python3 scripts/generate-devlog.py
-```
+## What's next
+
+Honest look at what's coming. No promises.
+
+---
+
+`python3 scripts/generate-devlog.py` when ready to publish.

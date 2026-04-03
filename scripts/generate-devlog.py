@@ -3,6 +3,13 @@
 Vaelund Devlog Generator
 Reads _posts/*.md, generates devlog/index.html and devlog/<slug>.html
 Run manually after adding a new post.
+
+Tone guide — Factorio-inspired:
+- Direct, honest, no corporate filler
+- Short sentences. Lists of concrete things done.
+- Admit what broke, what took too long, what didn't work
+- Technical detail where it matters
+- No hype. No "we're excited to". Just what happened.
 """
 
 import re
