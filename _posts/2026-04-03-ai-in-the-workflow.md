@@ -5,7 +5,7 @@ tag: meta
 excerpt: Code generation works until the architecture fights back. Asset generation needs refinement. A CLI tool makes the game scriptable.
 ---
 
-**TL;DR** — AI tools helped ship more this week. Code generation works until the architecture fights back. Asset generation needs refinement, not replacement. A CLI tool makes the game scriptable for testing.
+**TL;DR** — We kept the server architecture modular. We designed the network to scale to 1000 players with low network load. We built a CLI for scripted testing.
 
 ---
 
