@@ -11,19 +11,19 @@ excerpt: Code generation works until the architecture fights back. Asset generat
 
 ## Vaelund
 
-Vaelund is a 2D isometric MMORPG built in Rust. The engine is custom. The world is one seamless map — no zone loading screens. The goal is a game that respects the player's time: no hand-holding, real consequences, a world that does not explain itself.
+Vaelund is a 2D isometric MMORPG built in Rust. The engine is custom. The world is one seamless map, no zone loading screens.
 
-The team is one person. The stack: Rust + SQLite + Bevy (for rendering) + a custom UDP protocol for networking.
+The team is one person. The stack: Rust + SQLite + Bevy, for rendering, plus a custom UDP protocol for networking.
 
 ## The monolith
 
 At some point game.rs was doing game logic, network handling, connection management, and most of the server-side tick. It was not a design decision — it accumulated.
 
-When the context window fills with duplication and too many responsibilities, AI code generation starts producing code that matches the immediate problem but makes the next problem harder. The solution was to drive refactoring by hand: extract ConnectionManager, extract NetStats, extract ZoneTracker, split command handling into its own module, move the network stack out of game.rs. The AI did not do this. It could not have done this without the architecture being clear first.
+When the context window fills with duplication and too many responsibilities, AI code generation starts producing code that matches the immediate problem but makes the next problem harder. The solution was to drive refactoring by hand: extract ConnectionManager, extract NetStats, extract ZoneTracker, split command handling into its own module, move the network stack out of game.rs.
 
 ## The network math
 
-Before the architecture was touched, the network was not sustainable. Each WorldStateDelta sent full entity state for every entity in the zone, every tick. No delta compression. No interest management.
+Before the architecture was touched, the network was not sustainable. Each WorldStateDelta sent full entity state for every entity in the zone, every tick.
 
 Back of the envelope: one entity at 10 bytes per field, 20 fields per entity, 60 entities per zone, 10 ticks per second = 120KB/s per zone. For 1000 players concentrated in one place, this does not hold.
 
