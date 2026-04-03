@@ -147,7 +147,7 @@ a:visited { color: #8a8070; }
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 180, 255, 0.4) 0%, rgba(0, 120, 255, 0.15) 40%, rgba(80, 0, 200, 0.05) 60%, transparent 80%);
+  background: radial-gradient(circle, rgba(160, 0, 255, 0.5) 0%, rgba(120, 0, 200, 0.2) 40%, rgba(80, 0, 160, 0.05) 60%, transparent 80%);
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: -2;
@@ -177,8 +177,8 @@ a:visited { color: #8a8070; }
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #80d0ff;
-  box-shadow: 0 0 4px #80d0ff, 0 0 8px rgba(128, 208, 255, 0.8);
+  background: #c070ff;
+  box-shadow: 0 0 4px #c070ff, 0 0 8px rgba(192, 112, 255, 0.8);
   opacity: 0;
   pointer-events: none;
 }
@@ -191,8 +191,8 @@ a:visited { color: #8a8070; }
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #80d0ff;
-  box-shadow: 0 0 8px #80d0ff, 0 0 16px rgba(0, 200, 255, 1);
+  background: #c070ff;
+  box-shadow: 0 0 8px #c070ff, 0 0 16px rgba(192, 112, 255, 1);
   opacity: 0;
   pointer-events: none;
   z-index: -1;
