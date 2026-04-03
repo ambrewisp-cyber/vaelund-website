@@ -51,4 +51,6 @@ The `meadow_rat` took four generations before the result was usable. The anatomy
 ![Iron Sword](/vaelund-website/static/img/sprites/item_030.png)
 ![Archon's Sigil](/vaelund-website/static/img/sprites/item_052.png)
 
+*These are icon placeholders, not entity sprites.*
+
 For someone who does not know how to draw, PixelLab is incredibly useful. Results are very good bases that need refinement. They are not finished assets and not ready to ship without review.
