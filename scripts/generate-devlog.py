@@ -234,7 +234,7 @@ def read_posts():
         return posts
 
     for filename in sorted(os.listdir(POSTS_DIR)):
-        if not filename.endswith('.md'):
+        if not filename.endswith('.md') or filename.startswith('TEMPLATE'):
             continue
         filepath = os.path.join(POSTS_DIR, filename)
         with open(filepath, 'r', encoding='utf-8') as f:
