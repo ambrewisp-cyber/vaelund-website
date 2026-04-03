@@ -1,0 +1,22 @@
+# Vaelund Devlog — Post Format
+
+Add new posts as `.md` files here. Filename doesn't matter — the `date` field in frontmatter is what counts.
+
+Run `python3 scripts/generate-devlog.py` to generate the HTML pages.
+
+## Frontmatter
+
+```yaml
+---
+title: Your post title here
+date: 2026-04-09
+tag: progress  # or: feature, fix, lore, meta
+excerpt: One sentence summary shown on the index page.
+---
+```
+
+## Body
+
+Write in the Vaelund voice — Brandon Sanderson + WoW lore. Direct. Plain verbs. Short sentences. No hedging.
+
+See `/home/deck/dev/world/docs/STYLE.md` for the full style guide.
