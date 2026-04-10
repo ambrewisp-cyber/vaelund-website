@@ -31,7 +31,7 @@ We switched from MiniMax 2.7 to Opus for AI-assisted coding. MiniMax costs $0.30
 
 ### Hardware
 
-Up until now we were developing on a Steam Deck. The system partition is read-only, and working around that takes effort we didn't want to spend anymore. We switched to an old PC with a 13 year old CPU that was gifted to us about 10 years ago. It runs Linux and compiles Rust, which is all we need.
+I started working on this by using a Steam Deck as a workstation. Hooked a keyboard, mouse and screen to it, switched to desktop mode, started coding. I assumed it was just a normal Linux, very naively. I very quickly saw the limitations. The system partition is read-only. You can switch that off, but every file outside the user directory gets wiped on Steam Deck update. I tried using Nix to work around it. It worked at first, but then I had to fight the linker to compile the project. So I eventually switched to an old PC with a 13 year old CPU that was gifted to me about 10 years ago. It runs Linux and compiles Rust, which is all I need.
 
 ## What's next
 
