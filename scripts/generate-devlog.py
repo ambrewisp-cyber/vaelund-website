@@ -26,12 +26,12 @@ BASE_TEMPLATE = """<!DOCTYPE html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title} -- Vaelund Devlog</title>
-  <link rel="stylesheet" href="/vaelund-website/static/css/devlog.css">
+  <link rel="stylesheet" href="/static/css/devlog.css">
 </head>
 <body>
   <nav class="devlog-nav">
-    <a href="/vaelund-website/#devlog" class="back-link">← Back to site</a>
-    <a href="/vaelund-website/" class="site-link">Vaelund</a>
+    <a href="/#devlog" class="back-link">← Back to site</a>
+    <a href="/" class="site-link">Vaelund</a>
   </nav>
   <main class="devlog-post">
     <header class="post-header">
@@ -45,7 +45,7 @@ BASE_TEMPLATE = """<!DOCTYPE html>
 {content}
     </div>
     <footer class="post-footer">
-      <a href="/vaelund-website/devlog/" class="back-link">← Back to Devlog</a>
+      <a href="/devlog/" class="back-link">← Back to Devlog</a>
     </footer>
   </main>
 </body>
@@ -58,11 +58,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Devlog -- Vaelund</title>
-  <link rel="stylesheet" href="/vaelund-website/static/css/devlog.css">
+  <link rel="stylesheet" href="/static/css/devlog.css">
 </head>
 <body>
   <nav class="devlog-nav">
-    <a href="/vaelund-website/" class="site-link">← Vaelund</a>
+    <a href="/" class="site-link">← Vaelund</a>
   </nav>
   <main class="devlog-index">
     <header class="index-header">
@@ -82,9 +82,9 @@ POST_LINK_TEMPLATE = """      <article class="post-card">
           <span class="post-date">{date}</span>
           <span class="post-tag">{tag}</span>
         </div>
-        <h2 class="post-title"><a href="/vaelund-website/devlog/{slug}">{title}</a></h2>
+        <h2 class="post-title"><a href="/devlog/{slug}">{title}</a></h2>
         <p class="post-excerpt">{excerpt}</p>
-        <a href="/vaelund-website/devlog/{slug}" class="read-more">Read more →</a>
+        <a href="/devlog/{slug}" class="read-more">Read more →</a>
       </article>
 """
 
