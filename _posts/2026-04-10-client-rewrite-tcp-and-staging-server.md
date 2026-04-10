@@ -27,7 +27,7 @@ We split the database into two files. world_content_schema.sql is 213 lines of t
 
 ### AI tooling: MiniMax to Opus
 
-We switched from MiniMax 2.7 to Opus for AI-assisted coding. MiniMax costs $0.30 per million input tokens. Opus costs $15. That's 50x more expensive. But Opus produces the same quality in roughly half the time, so for iterative coding work the cost per useful output ends up similar.
+We switched from MiniMax 2.7 to Opus for AI-assisted coding. MiniMax costs $0.30 per million input tokens. Opus costs $15. That's 50x more expensive. The raw numbers say MiniMax wins. But working with MiniMax sometimes feels like swimming against the current. Bevy is a niche library and it shows. Opus gets there faster and the code is cleaner at the end. For iterative coding work, the effective cost ends up closer than the list price suggests.
 
 ### Hardware
 
