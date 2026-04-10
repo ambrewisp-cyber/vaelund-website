@@ -5,7 +5,7 @@ tag: progress
 excerpt: One sentence shown on the devlog index. Make it count.
 ---
 
-**TL;DR** — Short version for the impatient. One sentence.
+**TL;DR** -- Short version for the impatient. One sentence.
 
 ## What we did
 

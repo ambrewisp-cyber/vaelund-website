@@ -4,7 +4,7 @@ Vaelund Devlog Generator
 Reads _posts/*.md, generates devlog/index.html and devlog/<slug>.html
 Run manually after adding a new post.
 
-Tone guide — Factorio-inspired:
+Tone guide: Factorio-inspired:
 - Direct, honest, no corporate filler
 - Short sentences. Lists of concrete things done.
 - Admit what broke, what took too long, what didn't work
@@ -25,7 +25,7 @@ BASE_TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title} — Vaelund Devlog</title>
+  <title>{title} -- Vaelund Devlog</title>
   <link rel="stylesheet" href="/vaelund-website/static/css/devlog.css">
 </head>
 <body>
@@ -57,7 +57,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Devlog — Vaelund</title>
+  <title>Devlog -- Vaelund</title>
   <link rel="stylesheet" href="/vaelund-website/static/css/devlog.css">
 </head>
 <body>
@@ -212,7 +212,7 @@ def basic_inline(text):
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     # Italic
     text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
-    # Images ![alt](url) — must run BEFORE links, since ![...] also contains [...]
+    # Images ![alt](url) -- must run BEFORE links, since ![...] also contains [...]
     def img_replace(m):
         alt = m.group(1)
         url = m.group(2)
@@ -275,8 +275,10 @@ def read_posts():
 
 def generate_post_page(post):
     """Generate a single post HTML file."""
+    # Strip em-dashes from title for HTML output
+    title = post['title'].replace('\u2014', '--')
     html = BASE_TEMPLATE.format(
-        title=post['title'],
+        title=title,
         date=post['date'],
         tag=post['tag'],
         content=post['content'],
@@ -292,9 +294,11 @@ def generate_index(posts):
     """Generate the devlog index page."""
     post_links = []
     for post in posts:
+        # Strip em-dashes from title for HTML output
+        title = post['title'].replace('\u2014', '--')
         post_links.append(POST_LINK_TEMPLATE.format(
             slug=post['slug'],
-            title=post['title'],
+            title=title,
             date=post['date'],
             tag=post['tag'],
             excerpt=post['excerpt'],

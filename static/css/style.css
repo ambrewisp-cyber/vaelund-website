@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   VAELUND — Old-school Blizzard aesthetic, 2004 edition
+   VAELUND -- Old-school Blizzard aesthetic, 2004 edition
    ═══════════════════════════════════════════════════════════ */
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,7 +37,7 @@ body {
   animation: float-up linear infinite;
 }
 
-/* Left edge — distributed top to bottom */
+/* Left edge -- distributed top to bottom */
 .ep-l1  { left: 3%;   top: 5%;  animation-duration: 8s;  animation-delay: 0s;    }
 .ep-l2  { left: 7%;   top: 20%; animation-duration: 11s; animation-delay: 1.2s;  }
 .ep-l3  { left: 4%;   top: 35%; animation-duration: 9s;  animation-delay: 2.5s;  }
@@ -245,7 +245,7 @@ to   { transform: translate(-50%, -50%) rotate(360deg); }
   100% { transform: translateY(-100px) scale(0); opacity: 0; }
 }
 
-/* Hardcore glow pulse — layered cyan/violet text-shadow */
+/* Hardcore glow pulse -- layered cyan/violet text-shadow */
 @keyframes glow-hardcore {
   0%, 100% {
     text-shadow:

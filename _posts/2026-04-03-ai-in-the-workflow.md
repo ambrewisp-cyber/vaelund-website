@@ -1,11 +1,11 @@
 ---
-title: AI in the workflow
+title: "#1: AI in the workflow"
 date: 2026-04-03
 tag: meta
 excerpt: We kept the server architecture modular. We designed the network to scale to 1000 players with low network load. We built a CLI for scripted testing.
 ---
 
-**TL;DR** — We kept the server architecture modular. We designed the network to scale to 1000 players with low network load. We built a CLI for scripted testing.
+**TL;DR** -- We kept the server architecture modular. We designed the network to scale to 1000 players with low network load. We built a CLI for scripted testing.
 
 ---
 

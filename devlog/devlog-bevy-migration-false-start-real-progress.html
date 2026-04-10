@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devlog: Bevy Migration -- False Start, Real Progress -- Vaelund Devlog</title>
+  <link rel="stylesheet" href="/vaelund-website/static/css/devlog.css">
+</head>
+<body>
+  <nav class="devlog-nav">
+    <a href="/vaelund-website/#devlog" class="back-link">← Back to site</a>
+    <a href="/vaelund-website/" class="site-link">Vaelund</a>
+  </nav>
+  <main class="devlog-post">
+    <header class="post-header">
+      <div class="post-meta">
+        <span class="post-date">06 Apr 2026</span>
+        <span class="post-tag">progress</span>
+      </div>
+      <h1 class="post-title">Devlog: Bevy Migration -- False Start, Real Progress</h1>
+    </header>
+    <div class="post-body">
+<p><strong>TL;DR</strong> -- Started migrating the game client from macroquad to bevy. The compat layer approach didn't hold. Tried a clean bevy implementation. Then realized we didn't need either client right now, so we deleted both and kept only the server.</p>
+<h2>What we did</h2>
+<ul>
+<li>Began migrating the <code>client</code> crate from macroquad to bevy 0.13</li>
+<li>Added a <code>macroquad_compat.rs</code> layer to bridge existing draw calls to bevy's renderer</li>
+<li>Explored a separate <code>bevy_client</code> package as a clean implementation</li>
+<li>Deleted both <code>client/</code> and <code>bevy_client/</code> entirely -- 26,600 lines removed</li>
+<li>Kept <code>server/</code>, <code>auth/</code>, <code>editor/</code>, and <code>shared/</code> as the core packages</li>
+</ul>
+<h2>Problems we hit</h2>
+<p>The compat layer was the wrong call. Macroquad's immediate-mode API and bevy's ECS model are fundamentally different -- forcing one onto the other created friction everywhere. Drawing a sprite meant fighting the bridge instead of using bevy properly.</p>
+<p>The clean <code>bevy_client</code> implementation was the right instinct, but it surfaced a deeper question: the game is still at a stage where the client architecture is in flux. Investing heavily in a rendering pipeline when we haven't locked down the data model meant rewriting twice.</p>
+<h2>What we learned</h2>
+<p>A compat layer buys you nothing when the underlying models don't align. Better to commit to a direction or step back entirely.</p>
+<p>The game server is the anchor. Everything else is disposable until the core loop is solid.</p>
+<h2>What's next</h2>
+<p>Focus stays on the server. The CLI client (UDP REPL) is enough to test gameplay. When the game loop is stable, we'll revisit the renderer with a clearer picture of what we actually need.</p>
+    </div>
+    <footer class="post-footer">
+      <a href="/vaelund-website/devlog/" class="back-link">← Back to Devlog</a>
+    </footer>
+  </main>
+</body>
+</html>
