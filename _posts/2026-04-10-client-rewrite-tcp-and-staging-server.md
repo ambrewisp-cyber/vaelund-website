@@ -36,3 +36,5 @@ I started working on this by using a Steam Deck as a workstation. Hooked a keybo
 ## What's next
 
 The new client still needs to catch up with the old one: spell casting, inventory, character stats, attacking. Next week will be slow because of a work event, but the goal is to get a staging server up and running so friends can download the client and connect from their own machines.
+
+![Client screenshot](/static/img/client-screenshot-1.jpg)
