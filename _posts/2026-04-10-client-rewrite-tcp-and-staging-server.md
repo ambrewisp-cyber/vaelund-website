@@ -1,5 +1,5 @@
 ---
-title: "#2 -- Client rewrite, TCP, and staging server"
+title: "#2: Client rewrite, TCP, and staging server"
 date: 2026-04-10
 tag: progress
 excerpt: Deleted the old client, wrote a new one from scratch, moved UDP to TCP, and got a staging server up for playtesting.
