@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>#3: Cleaning up the codebase -- Vaelund Devlog</title>
+  <link rel="stylesheet" href="/static/css/devlog.css">
+</head>
+<body>
+  <nav class="devlog-nav">
+    <a href="/#devlog" class="back-link">← Back to site</a>
+    <a href="/" class="site-link">Vaelund</a>
+  </nav>
+  <main class="devlog-post">
+    <header class="post-header">
+      <div class="post-meta">
+        <span class="post-date">17 Apr 2026</span>
+        <span class="post-tag">progress</span>
+      </div>
+      <h1 class="post-title">#3: Cleaning up the codebase</h1>
+    </header>
+    <div class="post-body">
+<p><strong>TL;DR</strong> -- Moved the server code around to make it easier to work with, and brought the renderer draw calls down from 350 to 5.</p>
+<h2>What I did</h2>
+<h3>Split the server code</h3>
+<p>The server code was all in one file doing everything -- ticking, broadcasting, zone management, command dispatch. I split it into focused modules so each one has one job. character_spawn, chat, cleanup, debug, message_router, movement, save, tests, tick_broadcast, tick_regen, zone_tracker.</p>
+<h3>Reduced draw calls</h3>
+<p>The renderer was submitting a separate mesh for each grid line, each path segment, each outline. For a 150x150 zone that adds up fast: 302 meshes for the base grid alone, plus chunk boundaries, path highlights, hover and target outlines -- rebuilt every frame regardless of whether anything changed.</p>
+<p>I batched all lines in each system into a single mesh using Bevy's <code>PrimitiveTopology::LineList</code>. Hover and target outlines now use change detection so they only rebuild when the hovered or targeted entity actually changes.</p>
+<p>Result: 350 draw calls down to 5.</p>
+<h3>Fixed asset loading in release</h3>
+<p>Assets worked in debug but not in release. The paths were wrong for how the release build is invoked. Fixed that.</p>
+<h3>Auth server on 0.0.0.0</h3>
+<p>It was only listening on localhost so external clients could not reach it. Now it binds to all interfaces.</p>
+<h2>Problems I hit</h2>
+<p>The split was straightforward since I already knew where the natural seams were. The draw call issue took some digging -- the symptom was high frame time but the cause was in how sprites were being submitted to the render pipeline.</p>
+<h2>What's next</h2>
+<p>The clean structure makes the remaining items on the todo list easier to tackle. The foundation is better now, next week should be more active.</p>
+<hr>
+<p>This week was light because I was away.</p>
+    </div>
+    <footer class="post-footer">
+      <a href="/devlog/" class="back-link">← Back to Devlog</a>
+    </footer>
+  </main>
+</body>
+</html>
